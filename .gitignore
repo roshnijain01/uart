@@ -1,1 +1,6 @@
-sim/
+*.vcd
+rx
+tx
+tx_rx
+rx_tx
+
