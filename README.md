@@ -35,7 +35,7 @@ This repository contains a **Verilog HDL design and testbench** implementation o
 UART is a **serial communication protocol** that transmits and receives data **asynchronously** (without a shared clock).  
 A typical UART frame looks like:
 
-![UART FRAME](docs/block_diagram.png)
+![UART FRAME](docs/uart_frame.png)
 
 - **Start bit** → Always `0` (low)  
 - **Data bits** → Usually 8 bits (LSB is transmitted first)
