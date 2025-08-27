@@ -12,40 +12,30 @@ This repository contains a **Verilog HDL design and testbench** implementation o
 - Compatible with FPGA implementation  
 
 ## Repository Structure
-
 ├── src/  
-│ ├── uart_tx.v         #UART Transmitter module  
-│ └── uart_rx.v         #UART Receiver module  
+│   ├── uart_tx.v  
+│   └── uart_rx.v  
 │  
 ├── tb/  
-│ ├── tb_uart_tx.v      #Testbench for transmitter 
-│ ├── tb_uart_rx.v      #Testbench for receiver 
-│ ├── tb_rx_tx.v        #Testbench for transmission of data from rx-> tx  
-│ └── tb_tx_rx_loop.v   #Testbench for transmission of data from tx -> rx 
+│   ├── tb_uart_tx.v  
+│   ├── tb_uart_rx.v  
+│   ├── tb_rx_tx.v  
+│   └── tb_tx_rx_loop.v  
 │  
-├── sim/  
-│ ├── rx                #Compiled simulation executable (run with `vvp rx`)
-│ ├── rx_tx             #Compiled simulation executable (run with `vvp rx_tx`) 
-│ ├── tx_rx             #Compiled simulation executable (run with `vvp tx_rx`)
-│ ├── tx                #Compiled simulation executable (run with `vvp tx`)
-│ ├── rx.vcd            #Waveform of uart rx testbench  
-│ ├── rx_tx.vcd         #Waveform of RX -> TX loop testbench 
-│ ├── tx_rx.vcd         #Waveform of TX -> RX loop testbench
-│ └── tx.vcd            #Waveform of uart tx testbench
-│ 
 ├── docs/  
-│ ├── uart_frame.png 
-│ ├── uart_block_diagram.png  
-│ └── uart_waveform.png  
+│   ├── uart_frame.png  
+│   ├── uart_block_diagram.png  
+│   └── uart_waveform.png  
 │  
-└── README.md  
+├── README.md  
+└── .gitignore  
 
 ## UART Basics
 
 UART is a **serial communication protocol** that transmits and receives data **asynchronously** (without a shared clock).  
 A typical UART frame looks like:
 
-![UART_FRAME](https://github.com/roshnijain01/uart/docs/uart_frame.png)
+![UART FRAME](docs/block_diagram.png)
 
 - **Start bit** → Always `0` (low)  
 - **Data bits** → Usually 8 bits (LSB is transmitted first)
@@ -54,25 +44,24 @@ A typical UART frame looks like:
 
 ## Block Diagram
 
-![UART Block Diagram](https://github.com/roshnijain01/uart/docs/block_diagram.png)
+![UART Block Diagram](docs/block_diagram.png)
+
 
 ## UART Frame Example
 
 Following are waveform screenshots captured from the simulation(VCD files):
 
 - Transmission of serial data (`0xBE`) from the testbench to the UART Receiver module.  
-   ![]()
+   ![rx_vcd](docs/rx_waveform.png)
 
 - Parallel transmission of a data byte (`0xAB`) from the testbench to the UART Transmitter module.  
-   ![]()
+   ![tx_vcd](docs/tx_waveform.png)
 
 - Serial data (`0x65`) sent from the testbench to the UART Receiver, with the Receiver’s output connected to the Transmitter module.  
-   ![]()
+   ![rx_tx_vcd](docs/rx_tx_waveform.png)
 
 - Parallel data byte (`0xA1`) sent from the testbench to the UART Transmitter, with the Transmitter’s output connected to the Receiver module.  
-   ![]()
-
-![UART Waveform](https://raw.githubusercontent.com/rahul-kumar-yadav/UART-Verilog/main/docs/uart_waveform.png)
+   ![tx_rx](docs/tx_rx_waveform.png)
 
 
 ## How to Run
@@ -117,9 +106,9 @@ Following are waveform screenshots captured from the simulation(VCD files):
 
 
 ## Resources
-1. ![UART Basics – Analog Devices](https://www.analog.com/en/resources/analog-dialogue/articles/uart-a-hardware-communication-protocol.html)
-2. ![Icarus Verilog](https://steveicarus.github.io/iverilog/index.html)
-3. ![GTKWave Viewer](https://gtkwave.sourceforge.net/)
-4. ![UART Basics – Wikipedia](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)  
-5. ![FPGA UART Tutorial (Nandland)](https://nandland.com/uart-communication-in-fpga/)  
-6. ![Serial Communication Basics](https://learn.sparkfun.com/tutorials/serial-communication)  
+1. [UART Basics – Analog Devices](https://www.analog.com/en/resources/analog-dialogue/articles/uart-a-hardware-communication-protocol.html)
+2. [Icarus Verilog](https://steveicarus.github.io/iverilog/index.html)
+3. [GTKWave Viewer](https://gtkwave.sourceforge.net/)
+4. [UART Basics – Wikipedia](https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter)  
+5. [FPGA UART Tutorial (Nandland)](https://nandland.com/uart-communication-in-fpga/)  
+6. [Serial Communication Basics](https://learn.sparkfun.com/tutorials/serial-communication)  
